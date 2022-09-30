@@ -43,7 +43,6 @@ warn("GEAR REROLLED")
 table.foreach(self.CurrentGear, print)
 self:SetGear()
 end
-GearService:RerollGear()
 
 
 return GearService
