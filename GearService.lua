@@ -19,10 +19,13 @@ GearService.ValidGear = {
 "KeycardMaster";
 "LockpickKit";
 }
-
-function GearService:SetGear()
-for i,v in pairs(self.CurrentGear) do
 local lp = game.Players.LocalPlayer
+
+function GearService:SetGear(loadout)
+if loadout == nil then loadout = 1 end
+for i,v in pairs(lp.PlayerData.Loadout["1"].Gear:GetChildren()) do v:Destroy() end
+
+for i,v in pairs(self.CurrentGear) do
 local s = getsenv(lp.PlayerGui.LoadoutGui.Loadout.LoadoutRunner)
 func = s.GearItemAddRemote
 func:InvokeServer(lp.PlayerData.Loadout["1"].Gear, v)
