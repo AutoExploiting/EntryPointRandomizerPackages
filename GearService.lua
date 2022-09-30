@@ -22,6 +22,7 @@ GearService.ValidGear = {
 local lp = game.Players.LocalPlayer
 
 function GearService:SetGear(loadout)
+  lp.PlayerGui:WaitForChild("LoadoutGui")
 if loadout == nil then loadout = 1 end
 for i,v in pairs(lp.PlayerData.Loadout["1"].Gear:GetChildren()) do v:Destroy() end
 
